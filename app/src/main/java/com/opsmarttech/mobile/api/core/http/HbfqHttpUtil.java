@@ -1,5 +1,7 @@
 package com.opsmarttech.mobile.api.core.http;
 
+import com.opsmarttech.mobile.api.core.constant.Constants;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,8 +23,7 @@ public class HbfqHttpUtil {
         HbfqResponse response = new HbfqResponse();
 
         try {
-
-            url = new URL(param.route);
+            url = new URL(param.route + Constants.METHOD);
             conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(10000);
             conn.setDoOutput(true);

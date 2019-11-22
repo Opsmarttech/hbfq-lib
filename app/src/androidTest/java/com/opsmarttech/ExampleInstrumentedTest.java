@@ -45,8 +45,8 @@ public class ExampleInstrumentedTest {
     @Test
     public void testPosDevPreCreate() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "http://172.15.0.104:8088/doPosDevicePay").commit();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "1234567890").commit();
+        //context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "https://136.25.18.11").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "A000009B09D368").commit();
         TradeParam tradeParam = new TradeParam();
         tradeParam.put("totalMount", "100");
         tradeParam.put("hbfqSellerPercent", "100");
@@ -58,7 +58,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void testPosDevPreCreate2() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "http://172.15.0.104:8088/doPosDevicePay").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "https://136.25.18.11").commit();
         context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "666554423").commit();
         TradeParam tradeParam = new TradeParam();
         tradeParam.put("totalMount", "100");
@@ -72,7 +72,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void testPosDevScan() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "http://172.15.0.104:8088/doPosDevicePay").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "https://136.25.18.11").commit();
         context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "666554423").commit();
         TradeParam tradeParam = new TradeParam();
         tradeParam.put("totalMount", "0.1");
@@ -92,8 +92,8 @@ public class ExampleInstrumentedTest {
     @Test
     public void testPosDevScan2() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "http://172.15.0.104:8088/doPosDevicePay").commit();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "1234567890").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "https://136.25.18.11").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "A000009B09D368").commit();
         TradeParam tradeParam = new TradeParam();
         tradeParam.put("totalMount", "0.2");
         tradeParam.put("hbfqSellerPercent", "100");
