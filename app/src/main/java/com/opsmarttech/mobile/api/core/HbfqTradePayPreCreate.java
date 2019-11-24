@@ -12,9 +12,4 @@ public class HbfqTradePayPreCreate extends HbfqTradePayGeneric {
         return HbfqHttpUtil.post(param);
     }
 
-    @Override
-    public Object queryTradeResult(String storeId, String tradeNum) {
-        return null;
-    }
-
 }

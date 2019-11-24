@@ -12,10 +12,4 @@ public class HbfqTradePayDefault extends HbfqTradePayGeneric {
         return HbfqHttpUtil.post(param);
     }
 
-    public Object queryTradeResult(String storeId, String tradeNum) {
-
-
-        return null;
-    }
-
 }

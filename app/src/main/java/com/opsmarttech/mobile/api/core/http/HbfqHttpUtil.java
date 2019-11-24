@@ -1,6 +1,7 @@
 package com.opsmarttech.mobile.api.core.http;
 
 import com.opsmarttech.mobile.api.core.constant.Constants;
+import com.opsmarttech.mobile.service.Hbfq;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,24 +19,59 @@ public class HbfqHttpUtil {
 
     public static HbfqResponse post(TradeParam param) {
 
+        HbfqResponse response = new HbfqResponse();
+
+        try {
+
+            JSONObject body = new JSONObject();
+            for(String key : param.keySet()) {
+                body.put(key, param.get(key));
+            }
+            response = doRequest(param.route + Constants.METHOD, body);
+
+        } catch(JSONException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return response;
+    }
+
+    public static HbfqResponse query(String queryUri, String outTradeNo, String storeId) {
+
+        HbfqResponse response = new HbfqResponse();
+
+        try {
+
+            JSONObject queryParam = new JSONObject();
+            queryParam.put("outTradeNo", outTradeNo);
+            queryParam.put("storeId", storeId);
+            response = doRequest("http://192.168.1.108:8088" + Constants.QUERY, queryParam);
+
+        } catch(JSONException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return response;
+    }
+
+    private static HbfqResponse doRequest(String uri, JSONObject body) {
+
         URL url = null;
         HttpURLConnection conn = null;
         HbfqResponse response = new HbfqResponse();
 
         try {
-            url = new URL(param.route + Constants.METHOD);
+            url = new URL(uri);
             conn = (HttpURLConnection) url.openConnection();
             conn.setConnectTimeout(10000);
             conn.setDoOutput(true);
             conn.setDoInput(true);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
-
-            JSONObject body = new JSONObject();
-
-            for(String key : param.keySet()) {
-                body.put(key, param.get(key));
-            }
 
             try (DataOutputStream dataOutputStream = new DataOutputStream(conn.getOutputStream())) {
                 dataOutputStream.writeBytes(String.valueOf(body));
@@ -69,11 +105,10 @@ public class HbfqHttpUtil {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch(JSONException e) {
-            e.printStackTrace();
         }
 
         return response;
+
     }
 
 }

@@ -109,4 +109,17 @@ public class ExampleInstrumentedTest {
         assertEquals(true, "10003".equals(code));
     }
 
+    @Test
+    public void testQuery() {
+        JSONObject jsonObject = Hbfq.query("5510b6db_0326_4e2b_b009_fe5e81516720", "2088901200045560");
+        String tradeResult = "";
+        try {
+            JSONObject queryJson = jsonObject.getJSONObject("alipay_trade_query_response");
+            tradeResult = queryJson.getString("trade_status");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        assertEquals(true, "TRADE_SUCCESS".equals(tradeResult));
+    }
+
 }

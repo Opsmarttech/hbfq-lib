@@ -3,14 +3,12 @@ package com.opsmarttech.mobile.service;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.opsmarttech.mobile.api.core.HbfqTradePayDefault;
 import com.opsmarttech.mobile.api.core.HbfqTradePayPreCreate;
 import com.opsmarttech.mobile.api.core.exception.ConfigNotFountException;
 import com.opsmarttech.mobile.api.core.exception.TradeParamEmptyException;
 import com.opsmarttech.mobile.api.core.http.DefaultHbfqApi;
-import com.opsmarttech.mobile.api.core.http.HbfqResponse;
 import com.opsmarttech.mobile.api.core.http.IHbfqApi;
 import com.opsmarttech.mobile.api.core.http.TradeParam;
 import com.opsmarttech.mobile.api.core.utils.QRCodeUtil;
@@ -77,6 +75,10 @@ public class Hbfq {
             e.printStackTrace();
         }
         return respObj;
+    }
+
+    public static JSONObject query(String outTradeNo, String storeId) {
+        return new DefaultHbfqApi(null).doQuery(outTradeNo, storeId);
     }
 
 }
