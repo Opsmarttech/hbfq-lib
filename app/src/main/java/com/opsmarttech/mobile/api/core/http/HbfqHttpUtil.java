@@ -47,7 +47,7 @@ public class HbfqHttpUtil {
             JSONObject queryParam = new JSONObject();
             queryParam.put("outTradeNo", outTradeNo);
             queryParam.put("storeId", storeId);
-            response = doRequest("http://192.168.1.108:8088" + Constants.QUERY, queryParam);
+            response = doRequest(queryUri + Constants.QUERY, queryParam);
 
         } catch(JSONException e) {
 
