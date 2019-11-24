@@ -35,7 +35,7 @@ public class HbfqTradePayWrapper<T extends HbfqTradePayGeneric> {
         String meid = sp.getString(Constants.DEVICE_MEID, "");
         if(uriString == null || "".equals(uriString) || meid == null || "".equals(meid)) throw new ConfigNotFountException();
         if(param == null || param.size() == 0) throw new TradeParamEmptyException();//https://136.25.18.11
-        param.route = f(param.route);
+        param.route = f(uriString);
         param.put("deviceMeid", meid);
         HbfqResponse resp = trade.executeTradePayRequset(param);
         if(resp.responseCode == HttpURLConnection.HTTP_OK) {
