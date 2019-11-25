@@ -51,7 +51,12 @@ public class ExampleInstrumentedTest {
         tradeParam.put("totalMount", "100");
         tradeParam.put("hbfqSellerPercent", "100");
         tradeParam.put("hbfqPhaseNum", "12");
-        String qrUrl = Hbfq.preCreateToPay(context, tradeParam);
+        String qrUrl = null;
+        try {
+            qrUrl = Hbfq.preCreateToPay(context, tradeParam).getString("qr_url");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         assertEquals(true, !"".equals(qrUrl));
     }
 
@@ -64,9 +69,14 @@ public class ExampleInstrumentedTest {
         tradeParam.put("totalMount", "100");
         tradeParam.put("hbfqSellerPercent", "100");
         tradeParam.put("hbfqPhaseNum", "12");
-        JSONObject jsonObject = new DefaultHbfqApi(context).doPay(tradeParam, HbfqTradePayPreCreate.class.getName());
-        String resp = Hbfq.preCreateToPay(context, tradeParam);
-        assertEquals(true, "".equals(resp));
+        JSONObject resp = Hbfq.preCreateToPay(context, tradeParam);
+        String status = null;
+        try {
+            status = resp.getString("status");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        assertEquals(true, "device unbind".equals(status));
     }
 
     @Test
