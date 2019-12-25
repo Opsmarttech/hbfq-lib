@@ -8,5 +8,6 @@ public class Constants {
     public static final String GATEWAY = "https://136.25.18.11";
     public static final String METHOD = "/doPosDevicePay";
     public static final String QUERY = "/doQuery";
+    public static final String CLIENTINFO = "/fetchClientInfo";
 
 }

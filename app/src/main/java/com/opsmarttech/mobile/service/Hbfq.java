@@ -88,4 +88,8 @@ public class Hbfq {
         return new DefaultHbfqApi(null).doQuery(outTradeNo, storeId);
     }
 
+    public static JSONObject fetchClientInfo(String qrCode) {
+        return new DefaultHbfqApi(null).doFetchClientInfo(qrCode);
+    }
+
 }

@@ -64,6 +64,21 @@ public class HbfqTradePayWrapper<T extends HbfqTradePayGeneric> {
         return jsonObject;
     }
 
+    public JSONObject fetchClientInfo(@NonNull String storeQrCode) {
+        JSONObject jsonObject = null;
+        if(storeQrCode == null) throw new NullPointerException("[qrCode is empty] it's not allowed.");
+        HbfqResponse resp = trade.fetchClientInfo(f(Constants.CLIENTINFO), storeQrCode);
+        if(resp.responseCode == HttpURLConnection.HTTP_OK) {
+            try {
+                jsonObject = new JSONObject(resp.responseMessage);
+            } catch (JSONException e) {
+                Log.e(TAG, e.toString());
+                e.printStackTrace();
+            }
+        }
+        return jsonObject;
+    }
+
 
 
 

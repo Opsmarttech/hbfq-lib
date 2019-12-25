@@ -33,4 +33,8 @@ public class DefaultHbfqApi implements IHbfqApi {
         return new HbfqTradePayWrapper(HbfqTradeCreateFactory.getInstance().createTrade(HbfqTradePayDefault.class.getName())).queryTradeResult(outTradeNo, storeId);
     }
 
+    public JSONObject doFetchClientInfo(String qrCode) {
+        return new HbfqTradePayWrapper(HbfqTradeCreateFactory.getInstance().createTrade(HbfqTradePayDefault.class.getName())).fetchClientInfo(qrCode);
+    }
+
 }

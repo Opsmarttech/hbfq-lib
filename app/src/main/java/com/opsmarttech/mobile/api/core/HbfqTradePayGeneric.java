@@ -12,4 +12,8 @@ public abstract class HbfqTradePayGeneric {
         return HbfqHttpUtil.query(queryUri, outTradeNo, storeId);
     }
 
+    public HbfqResponse fetchClientInfo(String queryUri, String storeQrCode) {
+        return HbfqHttpUtil.fetchClientInfo(queryUri, storeQrCode);
+    }
+
 }
