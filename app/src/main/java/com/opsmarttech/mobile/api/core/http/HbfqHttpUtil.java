@@ -58,14 +58,15 @@ public class HbfqHttpUtil {
         return response;
     }
 
-    public static HbfqResponse fetchClientInfo(String queryUri, String storeQrCode) {
+    public static HbfqResponse fetchClientInfo(String queryUri, String storeQrCode, String deviceSN) {
         HbfqResponse response = new HbfqResponse();
 
         try {
 
             JSONObject queryParam = new JSONObject();
             queryParam.put("storeQrCode", storeQrCode);
-            response = doRequest(queryUri + Constants.QUERY, queryParam);
+            queryParam.put("deviceSN", deviceSN);
+            response = doRequest(queryUri + Constants.CLIENTINFO, queryParam);
 
         } catch(JSONException e) {
 

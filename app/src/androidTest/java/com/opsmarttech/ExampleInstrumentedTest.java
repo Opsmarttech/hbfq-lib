@@ -132,4 +132,16 @@ public class ExampleInstrumentedTest {
         assertEquals(true, "TRADE_SUCCESS".equals(tradeResult));
     }
 
+    @Test
+    public void testFetchClientInfo() {
+        JSONObject jsonObject = Hbfq.fetchClientInfo(null, "123123123");
+        String clientTitle = null;
+        try {
+            clientTitle = jsonObject.getString("clientTitle");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals(true, "[error : device unbind]".equals(clientTitle));
+    }
+
 }
