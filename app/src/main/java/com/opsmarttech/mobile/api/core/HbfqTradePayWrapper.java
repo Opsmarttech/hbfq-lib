@@ -52,7 +52,7 @@ public class HbfqTradePayWrapper<T extends HbfqTradePayGeneric> {
     public JSONObject queryTradeResult(Context context, @NonNull String outTradeNo) {
         JSONObject jsonObject = null;
         SharedPreferences sp = context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE);
-        String deviceSN = sp.getString(Constants.PRE_CREATE_ROUTE, "");
+        String deviceSN = sp.getString(Constants.DEVICE_MEID, "");
         if(deviceSN == null || "".equals(deviceSN)) throw new NullPointerException("[deviceSN is empty] it's not allowed.");
         HbfqResponse resp = trade.queryTradeResult(f(Constants.GATEWAY), outTradeNo, deviceSN);
         if(resp.responseCode == HttpURLConnection.HTTP_OK) {
