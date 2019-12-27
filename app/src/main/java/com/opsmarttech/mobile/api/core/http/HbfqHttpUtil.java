@@ -38,7 +38,7 @@ public class HbfqHttpUtil {
         return response;
     }
 
-    public static HbfqResponse query(String queryUri, String outTradeNo, String storeId) {
+    public static HbfqResponse query(String queryUri, String outTradeNo, String deviceSN) {
 
         HbfqResponse response = new HbfqResponse();
 
@@ -46,7 +46,7 @@ public class HbfqHttpUtil {
 
             JSONObject queryParam = new JSONObject();
             queryParam.put("outTradeNo", outTradeNo);
-            queryParam.put("storeId", storeId);
+            queryParam.put("deviceSN", deviceSN);
             response = doRequest(queryUri + Constants.QUERY, queryParam);
 
         } catch(JSONException e) {

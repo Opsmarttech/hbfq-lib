@@ -8,8 +8,8 @@ public abstract class HbfqTradePayGeneric {
 
     public abstract HbfqResponse executeTradePayRequset(TradeParam param);
 
-    public HbfqResponse queryTradeResult(String queryUri, String outTradeNo, String storeId) {
-        return HbfqHttpUtil.query(queryUri, outTradeNo, storeId);
+    public HbfqResponse queryTradeResult(String queryUri, String outTradeNo, String deviceSN) {
+        return HbfqHttpUtil.query(queryUri, outTradeNo, deviceSN);
     }
 
     public HbfqResponse fetchClientInfo(String queryUri, String storeQrCode, String deviceSN) {

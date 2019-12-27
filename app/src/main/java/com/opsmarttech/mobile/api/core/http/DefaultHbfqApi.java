@@ -29,8 +29,8 @@ public class DefaultHbfqApi implements IHbfqApi {
     }
 
     @Override
-    public JSONObject doQuery(String outTradeNo, String storeId) {
-        return new HbfqTradePayWrapper(HbfqTradeCreateFactory.getInstance().createTrade(HbfqTradePayDefault.class.getName())).queryTradeResult(outTradeNo, storeId);
+    public JSONObject doQuery(String outTradeNo) {
+        return new HbfqTradePayWrapper(HbfqTradeCreateFactory.getInstance().createTrade(HbfqTradePayDefault.class.getName())).queryTradeResult(context, outTradeNo);
     }
 
     public JSONObject doFetchClientInfo(String qrCode, String deviceSN) {

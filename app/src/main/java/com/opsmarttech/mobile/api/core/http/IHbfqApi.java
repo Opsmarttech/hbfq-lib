@@ -5,6 +5,6 @@ import org.json.JSONObject;
 public interface IHbfqApi {
 
     public JSONObject doPay(TradeParam param, String action);
-    public JSONObject doQuery(String outTradeNo, String storeId);
+    public JSONObject doQuery(String outTradeNo);
 
 }

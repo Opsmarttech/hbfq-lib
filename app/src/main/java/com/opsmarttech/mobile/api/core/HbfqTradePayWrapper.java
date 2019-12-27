@@ -49,10 +49,12 @@ public class HbfqTradePayWrapper<T extends HbfqTradePayGeneric> {
         return jsonObject;
     }
 
-    public JSONObject queryTradeResult(@NonNull String outTradeNo, @NonNull String storeId) {
+    public JSONObject queryTradeResult(Context context, @NonNull String outTradeNo) {
         JSONObject jsonObject = null;
-        if(storeId == null || "".equals(storeId)) throw new NullPointerException("[storeId is empty] it's not allowed.");
-        HbfqResponse resp = trade.queryTradeResult(f(Constants.GATEWAY), outTradeNo, storeId);
+        SharedPreferences sp = context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE);
+        String deviceSN = sp.getString(Constants.PRE_CREATE_ROUTE, "");
+        if(deviceSN == null || "".equals(deviceSN)) throw new NullPointerException("[deviceSN is empty] it's not allowed.");
+        HbfqResponse resp = trade.queryTradeResult(f(Constants.GATEWAY), outTradeNo, deviceSN);
         if(resp.responseCode == HttpURLConnection.HTTP_OK) {
             try {
                 jsonObject = new JSONObject(resp.responseMessage);
