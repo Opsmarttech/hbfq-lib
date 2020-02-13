@@ -9,8 +9,8 @@ public class Constants {
     public static final String CLIENT_HBFQ_NUM = "client_hbfq_num";
     public static final String CLIENT_HBFQ_PER = "client_hbfq_per";
     public static final String GATEWAY = "https://136.25.18.11";
-    public static final String METHOD = "/doPosDevicePay";
-    public static final String QUERY = "/doQuery";
-    public static final String CLIENTINFO = "/fetchClientInfo";
+    public static final String METHOD = "/pos/doPosDevicePay";
+    public static final String QUERY = "/pos/doQuery";
+    public static final String CLIENTINFO = "/pos/fetchClientInfo";
 
 }
