@@ -13,6 +13,9 @@ public class Constants {
     public static final String QUERY = "/pos/doQuery";
     public static final String CLIENTINFO = "/pos/fetchClientInfo";
 
+    public static final String TRADE_TYPE_HB = "001";
+    public static final String TRADE_TYPE_LBF = "002";
+
     public static final float HB_PHASE_3_PERCENT  = 0.023f;
     public static final float HB_PHASE_6_PERCENT  = 0.045f;
     public static final float HB_PHASE_12_PERCENT = 0.075f;
