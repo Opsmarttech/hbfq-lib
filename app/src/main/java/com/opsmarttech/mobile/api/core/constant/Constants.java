@@ -13,4 +13,13 @@ public class Constants {
     public static final String QUERY = "/pos/doQuery";
     public static final String CLIENTINFO = "/pos/fetchClientInfo";
 
+    public static final float HB_PHASE_3_PERCENT  = 0.023f;
+    public static final float HB_PHASE_6_PERCENT  = 0.045f;
+    public static final float HB_PHASE_12_PERCENT = 0.075f;
+
+    public static final float LBF_PHASE_3_PERCENT  = 0.0f;
+    public static final float LBF_PHASE_6_PERCENT  = 0.0f;
+    public static final float LBF_PHASE_12_PERCENT = 0.0f;
+
+
 }
