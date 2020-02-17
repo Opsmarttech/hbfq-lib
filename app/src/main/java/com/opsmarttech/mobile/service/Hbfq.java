@@ -84,8 +84,8 @@ public class Hbfq {
         return respObj;
     }
 
-    public static JSONObject query(Context context, String outTradeNo) {
-        return new DefaultHbfqApi(context).doQuery(outTradeNo);
+    public static JSONObject query(Context context, String outTradeNo, String tradeType) {
+        return new DefaultHbfqApi(context).doQuery(outTradeNo, tradeType);
     }
 
     public static JSONObject fetchClientInfo(String qrCode, String deviceSN) {
