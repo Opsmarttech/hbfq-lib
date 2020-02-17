@@ -30,7 +30,7 @@ public class DefaultHbfqApi implements IHbfqApi {
 
     @Override
     public JSONObject doQuery(String outTradeNo, String tradeType) {
-        return new HbfqTradePayWrapper(HbfqTradeCreateFactory.getInstance().createTrade(HbfqTradePayDefault.class.getName())).queryTradeResult(context, outTradeNo);
+        return new HbfqTradePayWrapper(HbfqTradeCreateFactory.getInstance().createTrade(HbfqTradePayDefault.class.getName())).queryTradeResult(context, outTradeNo, tradeType);
     }
 
     public JSONObject doFetchClientInfo(String qrCode, String deviceSN) {
