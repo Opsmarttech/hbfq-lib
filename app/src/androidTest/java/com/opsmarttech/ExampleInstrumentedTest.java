@@ -120,9 +120,28 @@ public class ExampleInstrumentedTest {
     }
 
     @Test
+    public void testPosDevForm() {
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "https://136.25.18.11").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "PE18197C61939").commit();
+        TradeParam tradeParam = new TradeParam();
+        tradeParam.put("totalMount", "100000");
+        tradeParam.put("storeId", "GZW-001");
+        tradeParam.put("insNum", "6");
+        JSONObject jsonObject = Hbfq.formToPay(context, tradeParam);
+        String url = "";
+        try {
+            url = jsonObject.getString("formUrl");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        assertEquals(true, url != null ? true : false);
+    }
+
+    @Test
     public void testQuery() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        JSONObject jsonObject = Hbfq.query(context, "0431f864_16ac_4cee_9a2b_ff68a24920fc");
+        JSONObject jsonObject = Hbfq.query(context, "0431f864_16ac_4cee_9a2b_ff68a24920fc", "001");
         String tradeResult = "";
         try {
             JSONObject queryJson = jsonObject.getJSONObject("alipay_trade_query_response");

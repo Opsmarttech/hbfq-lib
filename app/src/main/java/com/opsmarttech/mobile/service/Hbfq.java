@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.opsmarttech.mobile.api.core.HbfqTradePayDefault;
 import com.opsmarttech.mobile.api.core.HbfqTradePayPreCreate;
+import com.opsmarttech.mobile.api.core.LbfqTradePayForm;
 import com.opsmarttech.mobile.api.core.exception.ConfigNotFountException;
 import com.opsmarttech.mobile.api.core.exception.TradeParamEmptyException;
 import com.opsmarttech.mobile.api.core.http.DefaultHbfqApi;
@@ -82,6 +83,21 @@ public class Hbfq {
             e.printStackTrace();
         }
         return respObj;
+    }
+
+    public static JSONObject formToPay(Context context, TradeParam tradeParam) {
+        JSONObject jsonObject = null;
+        IHbfqApi api = new DefaultHbfqApi(context);
+        try {
+            jsonObject = api.doPay(tradeParam, LbfqTradePayForm.class.getName());
+        } catch (ConfigNotFountException e) {
+            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
+        } catch (TradeParamEmptyException e) {
+            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
+        }
+        return jsonObject;
     }
 
     public static JSONObject query(Context context, String outTradeNo, String tradeType) {

@@ -6,6 +6,7 @@ import com.opsmarttech.mobile.api.core.HbfqTradeCreateFactory;
 import com.opsmarttech.mobile.api.core.HbfqTradePayDefault;
 import com.opsmarttech.mobile.api.core.HbfqTradePayPreCreate;
 import com.opsmarttech.mobile.api.core.HbfqTradePayWrapper;
+import com.opsmarttech.mobile.api.core.LbfqTradePayForm;
 
 import org.json.JSONObject;
 
@@ -16,6 +17,7 @@ public class DefaultHbfqApi implements IHbfqApi {
     protected void init() {
         HbfqTradeCreateFactory.getInstance().registType(HbfqTradePayDefault.class);
         HbfqTradeCreateFactory.getInstance().registType(HbfqTradePayPreCreate.class);
+        HbfqTradeCreateFactory.getInstance().registType(LbfqTradePayForm.class);
     }
 
     public DefaultHbfqApi(Context context) {
