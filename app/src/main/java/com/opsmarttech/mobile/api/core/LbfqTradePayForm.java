@@ -11,7 +11,7 @@ public class LbfqTradePayForm extends HbfqTradePayGeneric {
     public HbfqResponse executeTradePayRequset(TradeParam param) {
         HbfqResponse response = new HbfqResponse();
         response.responseCode = HttpURLConnection.HTTP_OK;
-        response.responseMessage = "{\"fromUrl\":\"" + param.route + "/lbf/doPay/" + param.get("totalAmount") + "/" + param.get("lbfStoreId") + "/"+ param.get("insNum") +"\"}";
+        response.responseMessage = "{\"fromUrl\":\"" + param.route + "/lbf/doPay/" + param.get("totalAmount") + "/" + param.get("lbfStoreId") + "/"+ param.get("insNum") +"?tradeFrom=pos_qr\"}";
         return response;
     }
 
