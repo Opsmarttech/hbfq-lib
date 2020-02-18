@@ -1,7 +1,5 @@
 package com.opsmarttech.mobile.api.core;
 
-import com.opsmarttech.mobile.api.core.constant.Constants;
-import com.opsmarttech.mobile.api.core.http.HbfqHttpUtil;
 import com.opsmarttech.mobile.api.core.http.HbfqResponse;
 import com.opsmarttech.mobile.api.core.http.TradeParam;
 
@@ -14,7 +12,7 @@ public class LbfqTradePayForm extends HbfqTradePayGeneric {
         HbfqResponse response = new HbfqResponse();
         response.responseCode = HttpURLConnection.HTTP_OK;
         response.responseMessage = "{\"fromUrl\":\"" + param.route + "/lbf/doPay/" + param.get("totalAmount") + "/" + param.get("lbfStoreId") + "/"+ param.get("insNum") +"\"}";
-        return HbfqHttpUtil.post(param);
+        return response;
     }
 
 }
