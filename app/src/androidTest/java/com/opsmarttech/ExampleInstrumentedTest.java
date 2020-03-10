@@ -46,11 +46,12 @@ public class ExampleInstrumentedTest {
     public void testPosDevPreCreate() {
         Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
         //context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.PRE_CREATE_ROUTE, "https://136.25.18.11").commit();
-        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "A000009B09D368").commit();
+        context.getSharedPreferences(Constants.SHAREDPREFERENCES_FILE, Context.MODE_PRIVATE).edit().putString(Constants.DEVICE_MEID, "HYTBB18A12507991").commit();
         TradeParam tradeParam = new TradeParam();
         tradeParam.put("totalMount", "100");
         tradeParam.put("hbfqSellerPercent", "100");
         tradeParam.put("hbfqPhaseNum", "12");
+        tradeParam.put("merchantType", Constants.TRADE_TYPE_HB);
         String qrUrl = null;
         try {
             qrUrl = Hbfq.preCreateToPay(context, tradeParam).getString("qr_url");
@@ -69,6 +70,7 @@ public class ExampleInstrumentedTest {
         tradeParam.put("totalMount", "100");
         tradeParam.put("hbfqSellerPercent", "100");
         tradeParam.put("hbfqPhaseNum", "12");
+        tradeParam.put("merchantType", Constants.TRADE_TYPE_HB);
         JSONObject resp = Hbfq.preCreateToPay(context, tradeParam);
         String status = null;
         try {
